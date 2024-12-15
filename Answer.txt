@@ -1,0 +1,26 @@
+Question 1. How did you handle inline editing in the table?
+Answer:- Inline editing in the table was handled by leveraging the features provided by the Tabulator library. Tabulator allows specific columns to be made editable by defining an editor property for each column. For text-based columns, the editor is set to 'input', which allows the user to edit text directly within the table cells. For the status column, a 'select' editor is used to provide a dropdown of predefined values. Once the user modifies a cell, the change is captured through the cellEdited event, and the updated data is passed to a function that handles the state update in the parent component.
+
+
+
+Question 2. Explain how you fetched and processed the data from the dummy API.
+Ans:- To fetch and process data from a dummy API, the typical approach would involve using JavaScript's fetch() or a library like Axios to make an HTTP request to the API endpoint. The data returned from the API would typically be in JSON format. After the data is fetched, it is processed and stored in the component’s state. This data would then be passed as a prop to the table, which is rendered with this data. Additionally, any necessary data transformations, such as filtering or sorting, could be applied before storing it in the state.
+
+
+
+Question 3. What approach did you use to filter tasks based on status?
+Answer: Filtering tasks based on their status was achieved by implementing a dynamic filtering mechanism within the table. By using the Tabulator library’s built-in filtering features, a user can choose a status filter via a dropdown or buttons. Once a filter is applied, the table only displays the tasks that match the selected status. This can be done either programmatically through Tabulator’s filtering methods or by manipulating the data in the React state and passing it down to the table component, ensuring that only the relevant tasks are shown based on the selected filter.
+
+
+
+Qus 4. How did you manage the state of tasks when adding or editing them?
+Answer:- The state of tasks was managed using React’s useState hook. Each time a task was added or edited, the state was updated accordingly. When a new task was added, it was appended to the existing list of tasks stored in the state. Similarly, when a task was edited, the state was updated by modifying the specific task that was changed. For task updates, the existing task array was mapped over to find the updated task and replace it with the new data. This approach ensures that the UI is always in sync with the current state of tasks.
+
+
+
+Qus 5. What challenges did you face during development, and how did you overcome them?
+Some of the challenges faced during development include:
+
+Integrating Tabulator with React: Since Tabulator is a jQuery-based library, integrating it with React, which is a declarative framework, can be tricky. 
+State Synchronization: Managing the state of tasks between the form (for adding tasks) and the table (for displaying tasks) was another challenge. React’s state management ensures that when tasks are added or updated, the entire UI reflects these changes.
+
